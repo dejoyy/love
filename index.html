@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Я люблю Алису</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+
+    .heart {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background: red;
+      transform: rotate(-45deg);
+      animation: heartbeat 1s infinite;
+      z-index: 1;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -100px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: 100px;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: rotate(-45deg) scale(1); }
+      25%, 75% { transform: rotate(-45deg) scale(1.1); }
+      50% { transform: rotate(-45deg) scale(1); }
+    }
+
+    .heart-text {
+      position: absolute;
+      top: 30%;
+      left: 30%;
+      transform: rotate(45deg);
+      font-family: 'Arial', sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      animation: color-change 4s infinite;
+      text-align: center;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    @keyframes color-change {
+      0% { color: #ff0000; }
+      20% { color: #ff7f00; }
+      40% { color: #ffff00; }
+      60% { color: #00ff00; }
+      80% { color: #0000ff; }
+      100% { color: #8b00ff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="heart">
+    <div class="heart-text">Я люблю Алису</div>
+  </div>
+</body>
+</html>
